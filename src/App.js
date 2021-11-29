@@ -1,21 +1,30 @@
 import React from 'react'
 import './App.css'
-import { Flex, Text} from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 
 function App() {
   return (
-    <div className="App">
+    <Flex className="App" 
+    w='100%' 
+    h='100%' 
+    bg='red'
+    align='center'>
       <Flex 
-      w='100' 
-      direction='column'>
-        <Text fontSize='5xl'>
+      w='100%'
+      h='40%' 
+      direction='column'
+      justify='center'
+      align='center'
+      bg='green'>
+        <Text fontSize='6xl' fontFamily='Oswald, sans-serif'>
           Santiago Hamber
         </Text>
-        <Text fontSize='3xl'>
+        <Text fontSize='4xl' fontFamily='Oswald, sans-serif' color='gray.600'>
           Frontend developer
         </Text>
       </Flex>
-    </div>
+   
+    </Flex>
   );
 }
 
