@@ -1,65 +1,60 @@
 import React from 'react'
 import './App.css'
-import { Stack , Flex, Text } from '@chakra-ui/react'
+import Menu from './components/header/Menu';
+import Tittle from './components/header/Tittle';
+import { Box, HStack , Flex, Text, Image } from '@chakra-ui/react'
 
-const Menu = () => {
-  const CustomText = ({children}) => {
-    return(
+const Projects = () => {
+  return(
+    <Box marginTop='5em'>
       <Text
-      fontSize='xl'
       fontFamily='Source Code Pro, monospace'
-      fontWeight='bold'>
-        {children}
+      fontSize='2em'
+      marginLeft='1em'
+      textDecoration='underline'>
+        Proyectos
       </Text>
-    )
-  }
-return(
-    <Stack
-    bg='red'
-    w='100%'
-    h='3em'
-    direction='row'
-    justify='end'
-    align='center'
-    spacing='1em'
-    pr='1em'>
-      <CustomText>
-        Home 
-      </CustomText>
-      <CustomText>
-        Sobre mi 
-      </CustomText>
-      <CustomText>
-        Contactos
-      </CustomText>
-    </Stack>
+      <Flex
+      width='100%'
+      marginTop='2em'
+      justifyContent='center'
+      alignItems='center'>
+        <HStack
+        backgroundColor='red'
+        spacing='25px'
+        flexDirection='row'
+        p='2em'>
+          <Image
+          borderRadius='full'
+          boxSize='150px'
+          src='https://bit.ly/dan-abramov'
+          alt='Dan Abramov'
+        />
+                  <Image
+          borderRadius='full'
+          boxSize='150px'
+          src='https://bit.ly/dan-abramov'
+          alt='Dan Abramov'
+        />
+                  <Image
+          borderRadius='full'
+          boxSize='150px'
+          src='https://bit.ly/dan-abramov'
+          alt='Dan Abramov'
+        />
+        </HStack>
+      </Flex>
+    </Box>
   )
 }
 
 function App() {
   return (
-    <Flex className="App" 
-    w='100%' 
-    h='100%' 
-    align='center'
-    direction='column'>
-     <Menu/>
-      <Flex 
-      w='100%'
-      h='60%' 
-      direction='column'
-      justify='center'
-      align='center'
-      bg='green'>
-        <Text fontSize='6xl' fontFamily='Oswald, sans-serif'>
-          Santiago Hamber
-        </Text>
-        <Text fontSize='4xl' fontFamily='Oswald, sans-serif' color='gray.600'>
-          Frontend developer
-        </Text>
-      </Flex>
-   
-    </Flex>
+    <div>
+      <Menu/>
+      <Tittle/>
+      <Projects/>
+    </div>
   );
 }
 
