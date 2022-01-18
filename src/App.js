@@ -2,11 +2,37 @@ import React from 'react'
 import './App.css'
 import Menu from './components/header/Menu';
 import Tittle from './components/header/Tittle';
-import { Box, HStack , Flex, Text, Image } from '@chakra-ui/react'
+import { Box, Stack , Flex, Text, Image } from '@chakra-ui/react'
 
 const Projects = () => {
+
+    const CardProject = ({name,tag}) => {
+      return(
+        <Flex 
+        flexDirection='column'
+        justify='center'
+        align='center'>
+          <Image
+            borderRadius='full'
+            boxSize='150px'
+            src='https://bit.ly/dan-abramov'
+            alt='Dan Abramov'
+          />
+          <Text 
+          fontFamily="'Cabin', sans-serif;"
+          fontSize='1.5em'
+          textAlign='center'>
+            {name}
+          </Text>
+          <Text>
+            #{tag}
+          </Text>
+        </Flex>
+      )
+    }
   return(
-    <Box marginTop='5em'>
+    <Box 
+    marginTop='5em'>
       <Text
       fontFamily='Source Code Pro, monospace'
       fontSize='2em'
@@ -19,30 +45,18 @@ const Projects = () => {
       marginTop='2em'
       justifyContent='center'
       alignItems='center'>
-        <HStack
+        <Stack
         backgroundColor='red'
-        spacing='25px'
-        flexDirection='row'
+        direction={{base:'column',md:'row'}}
+        spacing={{base:'27',md:'31'}}
+        justify='center'
+        align='center'
+        w={{base:'100%',md:'80%'}}
         p='2em'>
-          <Image
-          borderRadius='full'
-          boxSize='150px'
-          src='https://bit.ly/dan-abramov'
-          alt='Dan Abramov'
-        />
-                  <Image
-          borderRadius='full'
-          boxSize='150px'
-          src='https://bit.ly/dan-abramov'
-          alt='Dan Abramov'
-        />
-                  <Image
-          borderRadius='full'
-          boxSize='150px'
-          src='https://bit.ly/dan-abramov'
-          alt='Dan Abramov'
-        />
-        </HStack>
+          <CardProject name={'Memotest'} tag={'juego'}/>
+          <CardProject name={'to-do list'} tag={'oficina'}/>
+          <CardProject name={'SuperHero'} tag={'marvel'}/>
+        </Stack>
       </Flex>
     </Box>
   )
