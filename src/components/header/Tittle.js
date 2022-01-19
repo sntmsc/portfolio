@@ -8,8 +8,7 @@ const Tittle = () => {
         h='60%' 
         direction='column'
         justify='center'
-        align='center'
-        bg='green'>
+        align='center'>
           <Text fontSize='6xl' fontFamily='Oswald, sans-serif'>
             Santiago Hamber
           </Text>

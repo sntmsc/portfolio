@@ -2,22 +2,39 @@ import React from 'react'
 import './App.css'
 import Menu from './components/header/Menu';
 import Tittle from './components/header/Tittle';
-import { Box, Stack , Flex, Text, Image } from '@chakra-ui/react'
+import { Box, Stack , Flex, Text, Image } from '@chakra-ui/react';
 
 const Projects = () => {
+  const projects = [{name:'Memotest',tag:'juego',img:'./imgs/projects/memotest.png'},
+                    {name:'To-do List',tag:'oficina',img:'./imgs/projects/to-do-list.png'},
+                    {name:'SuperHero',tag:'marvel',img:'./imgs/projects/superhero.png'},
+                    {name:'Cretona Web',tag:'e-commerce',img:'./imgs/projects/cretona.png'},
+                    {name:'Paises', tag:'info',img:'./imgs/projects/paises.png'}]
 
-    const CardProject = ({name,tag}) => {
+    const CardProject = ({name,tag,index,img}) => {
       return(
-        <Flex 
+        <Flex
+        role='group'
         flexDirection='column'
         justify='center'
-        align='center'>
+        position='relative'
+        align='center'
+        width='10em'
+        height='15em'
+        _hover={{cursor:'pointer'}}>
           <Image
-            borderRadius='full'
-            boxSize='150px'
-            src='https://bit.ly/dan-abramov'
-            alt='Dan Abramov'
-          />
+                boxSize='8em'
+                borderRadius={index%2===0 ? '50%' : '0'}
+                border='1px solid black'
+                borderColor='rgba(0,0,0,0.2)'
+                mb='1em'
+                src={img}
+                alt='project'
+                boxShadow=' 0 0 0 2px black ;'
+                objectFit='cover'
+                _groupHover={{boxSize:'10em'}}
+                _groupActive={{boxSize:'10em'}}/>
+                
           <Text 
           fontFamily="'Cabin', sans-serif;"
           fontSize='1.5em'
@@ -46,16 +63,23 @@ const Projects = () => {
       justifyContent='center'
       alignItems='center'>
         <Stack
-        backgroundColor='red'
+        border={{base:'0',md:'1px'}}
+        borderRadius='15px'
         direction={{base:'column',md:'row'}}
         spacing={{base:'27',md:'31'}}
         justify='center'
         align='center'
+        flexWrap='wrap'
         w={{base:'100%',md:'80%'}}
         p='2em'>
-          <CardProject name={'Memotest'} tag={'juego'}/>
-          <CardProject name={'to-do list'} tag={'oficina'}/>
-          <CardProject name={'SuperHero'} tag={'marvel'}/>
+          {projects.map((x,i) => 
+              <CardProject 
+              name={x.name}
+              tag={x.tag}
+              img={x.img}
+              index={i}
+              />
+          )}
         </Stack>
       </Flex>
     </Box>
