@@ -5,13 +5,13 @@ import Tittle from './components/header/Tittle';
 import { Box, Stack , Flex, Text, Image } from '@chakra-ui/react';
 
 const Projects = () => {
-  const projects = [{name:'Memotest',tag:'juego',img:'./imgs/projects/memotest.png'},
-                    {name:'To-do List',tag:'oficina',img:'./imgs/projects/to-do-list.png'},
-                    {name:'SuperHero',tag:'marvel',img:'./imgs/projects/superhero.png'},
-                    {name:'Cretona Web',tag:'e-commerce',img:'./imgs/projects/cretona.png'},
-                    {name:'Paises', tag:'info',img:'./imgs/projects/paises.png'}]
+  const projects = [{name:'Memotest',tags:['juego'],img:'./imgs/projects/memotest.png'},
+                    {name:'To-do List',tags:['oficina'],img:'./imgs/projects/to-do-list.png'},
+                    {name:'SuperHero',tags:['juego','info'],img:'./imgs/projects/superhero.png'},
+                    {name:'Cretona Web',tags:['e-commerce'],img:'./imgs/projects/cretona.png'},
+                    {name:'Paises', tags:['info'],img:'./imgs/projects/paises.png'}]
 
-    const CardProject = ({name,tag,index,img}) => {
+    const CardProject = ({name,tags,index,img}) => {
       return(
         <Flex
         role='group'
@@ -30,7 +30,7 @@ const Projects = () => {
                 mb='1em'
                 src={img}
                 alt='project'
-                boxShadow=' 0 0 0 2px black ;'
+                boxShadow=' 0 0 0 2px black'
                 objectFit='cover'
                 _groupHover={{boxSize:'10em'}}
                 _groupActive={{boxSize:'10em'}}/>
@@ -42,7 +42,7 @@ const Projects = () => {
             {name}
           </Text>
           <Text>
-            #{tag}
+            {tags.map((x)=>`#${x}`).join(' ')}
           </Text>
         </Flex>
       )
@@ -75,7 +75,7 @@ const Projects = () => {
           {projects.map((x,i) => 
               <CardProject 
               name={x.name}
-              tag={x.tag}
+              tags={x.tags}
               img={x.img}
               index={i}
               />
