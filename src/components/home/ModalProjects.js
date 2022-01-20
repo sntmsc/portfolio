@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     Box,
+    Flex,
     Modal,
     ModalOverlay,
     ModalContent,
@@ -10,7 +11,9 @@ import {
     ModalCloseButton,
     Button,
     useDisclosure,
+    Icon
   } from '@chakra-ui/react'
+  import {ArrowLeftIcon, ArrowRightIcon} from '@chakra-ui/icons'
 
 
 
@@ -30,11 +33,27 @@ import {
         <Modal isOpen={isOpen} onClose={onClose} size='2xl'>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader fontSize='2em'>Modal Title</ModalHeader>
+            <ModalHeader
+            fontSize='2em'
+            width='100%'
+            textAlign='center'
+            mt='1em'>Modal Title</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-                <Box height='30em'></Box>
-              Prueba
+                <Box 
+                height='30em'
+                position='relative'>
+                    <Icon 
+                    as={ArrowLeftIcon}
+                    position='absolute'
+                    top='50%'
+                    left='10px'/>
+                    <Icon 
+                    as={ArrowRightIcon}
+                    position='absolute'
+                    top='50%'
+                    right='10px'/>
+                </Box>
             </ModalBody>
   
             <ModalFooter 
