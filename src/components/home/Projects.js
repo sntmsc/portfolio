@@ -1,17 +1,14 @@
 import React from 'react'
 import { Box, Stack , Flex, Text, Image  } from '@chakra-ui/react';
-const Projects = () => {
-  
-
-    const projects = [{name:'Memotest',tags:['juego'],img:'./imgs/projects/memotest.png'},
-                      {name:'To-do List',tags:['oficina'],img:'./imgs/projects/to-do-list.png'},
-                      {name:'SuperHero',tags:['juego','info'],img:'./imgs/projects/superhero.png'},
-                      {name:'Cretona Web',tags:['e-commerce'],img:'./imgs/projects/cretona.png'},
-                      {name:'Paises', tags:['info'],img:'./imgs/projects/paises.png'}];
-  
+import projectsData from '../../projectsData';
+import { useDispatch } from 'react-redux';
+import { selectProject } from '../../reducers/ProjectReducer';
+const Projects = ({setOpen}) => {
       const CardProject = ({name,tags,index,img}) => {
+        const dispatch = useDispatch();
         return(
           <Flex
+          onClick={()=>dispatch(selectProject(index))}
           role='group'
           flexDirection='column'
           justify='center'
@@ -34,12 +31,13 @@ const Projects = () => {
                   _groupActive={{boxSize:'10em'}}/>
                   
             <Text 
-            fontFamily="'Cabin', sans-serif;"
+            fontFamily="'Cabin', sans-serif"
             fontSize='1.5em'
             textAlign='center'>
               {name}
             </Text>
-            <Text>
+            <Text
+            fontFamily="'Cabin', sans-serif">
               {tags.map((x)=>`#${x}`).join(' ')}
             </Text>
           </Flex>
@@ -70,12 +68,14 @@ const Projects = () => {
           flexWrap='wrap'
           w={{base:'100%',md:'80%'}}
           p='2em'>
-            {projects.map((x,i) => 
+            {projectsData.map((x,i) => 
                 <CardProject 
+                key={i}
                 name={x.name}
                 tags={x.tags}
                 img={x.img}
                 index={i}
+                setOpen={setOpen}
                 />
             )}
           </Stack>
