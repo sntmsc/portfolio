@@ -4,8 +4,8 @@ import projectsData from "../../../projectsData"
 import { useDispatch } from 'react-redux'
 import { selectProject } from './../../../reducers/ProjectReducer'
 import {
-    Box,
     Image,
+    Box,
     Flex,
     HStack,
     Text,
@@ -17,8 +17,7 @@ import {
     ModalBody,
     ModalCloseButton,
     Button,
-    Icon,
-    IconButton
+    Link
   } from '@chakra-ui/react'
   import {ArrowLeftIcon, ArrowRightIcon} from '@chakra-ui/icons'
 
@@ -29,14 +28,15 @@ import {
     const project = useSelector(state => state.project)
     const dispatch = useDispatch();
     const projectsNames = projectsData.map((x)=>x.name);
-    const {isOpen, onClose, onOpen} = disclosure;
+    const {isOpen, onClose} = disclosure;
+    const currentIndex = projectsNames.indexOf(project.name);
     return (
       <>
         <Modal isOpen={isOpen} onClose={onClose} size='2xl'>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
-            fontSize='2em'
+            fontSize='3em'
             fontFamily="'Cabin', sans-serif"
             w='100%'
             mt='1em'
@@ -52,35 +52,45 @@ import {
                 direction='column'>
                   <HStack
                   spacing='29px'
-                  my='1em'>
-                    <Flex
-                    direction='column'
-                    justify='center'
-                    align='center'>
-                      <Image
-                      src='./imgs/icons/github-logo.png'
-                      alt='github'
-                      boxSize='1.9em'
-                      mb='.2em'/>
-                      <Text
-                      fontFamily="'Cabin', sans-serif">
-                        Github
-                      </Text>
-                    </Flex>
-                    <Flex
-                    direction='column'
-                    justify='center'
-                    align='center'
-                    height='5em'>
-                      <Image
-                      src='./imgs/icons/internet.png'
-                      alt='website'
-                      boxSize='2.1em'/>
-                      <Text
-                      fontFamily="'Cabin', sans-serif">
-                        sitio web
-                      </Text>
-                    </Flex>
+                  mb='1em'>
+                    <Link href={project.github} isExternal>
+                      <Flex
+                      direction='column'
+                      justify='center'
+                      align='center'>
+                        <Box
+                        boxSize='35px'>
+                          <Image
+                          src='./imgs/icons/github-logo.png'
+                          alt='Github'
+                          objectFit='cover'/>
+                        </Box>
+                        <Text
+                        fontFamily="'Cabin', sans-serif">
+                          Github
+                        </Text>
+                      </Flex>
+                    </Link>
+                    <Link href={project.website} isExternal>
+                      <Flex
+                      direction='column'
+                      justify='center'
+                      align='center'>
+                        <Box
+                        boxSize='40px'>
+                          <Image
+                          src='./imgs/icons/internet.png'
+                          alt='website'
+                          objectFit='cover'
+                          position='relative'
+                          top='3px'/>
+                        </Box>
+                        <Text
+                        fontFamily="'Cabin', sans-serif" position='relative' bottom='2.3px'>
+                          App
+                        </Text>
+                      </Flex>
+                    </Link>
                   </HStack>
                     <Image 
                     src={project.img}
@@ -100,13 +110,14 @@ import {
                     bg='#e1e1e1'
                     p='1em'
                     borderRadius='15px'
-                    fontFamily="'Cabin', sans-serif">
+                    fontFamily="'Cabin', sans-serif"
+                    h='8em'>
                       {project.desc}
                     </Text>
                   </Flex>
-                    <IconButton
+                    <Image
                     as={ArrowLeftIcon}
-                    onClick={()=>dispatch(selectProject(project.id-1))}
+                    onClick={()=>dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))}
                     alt='left option'
                     position='absolute'
                     top='15em'
@@ -115,9 +126,9 @@ import {
                     _hover={{
                       cursor:'pointer'
                     }}/>
-                    <IconButton 
+                    <Image
                     as={ArrowRightIcon}
-                    onClick={()=>dispatch(selectProject(project.id+1))}
+                    onClick={()=>dispatch(selectProject(currentIndex < projectsData.length - 1 ? currentIndex + 1 : 0))}
                     alt='right option'
                     position='absolute'
                     top='15em'
@@ -137,7 +148,7 @@ import {
               variant={x !== project.name ? 'outline' : 'solid'}
               mr={3}
               fontFamily='Source Code Pro, monospace'
-              onClick={onClose}
+              onClick={()=>dispatch(selectProject(projectsNames.indexOf(x)))}
               key={i}>
               {x}
             </Button>            
