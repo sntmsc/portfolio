@@ -2,22 +2,16 @@ import React from 'react'
 import { Box, Stack , Flex, Text  } from '@chakra-ui/react';
 import projectsData from '../../../projectsData';
 import CardProject from './CardProject';
+import Subtitle from '../../../utils/Subtitle';
 
 const Projects = ({disclosure}) => {
 
     return(
       <Box 
       marginTop='5em'>
-        <Text
-        fontFamily='Source Code Pro, monospace'
-        fontSize='2em'
-        textDecoration='underline'
-        ml='1em'>
-          Proyectos
-        </Text>
+        <Subtitle txt='Proyectos'/>
         <Flex
         width='100%'
-        marginTop='2em'
         justifyContent='center'
         alignItems='center'>
           <Stack
