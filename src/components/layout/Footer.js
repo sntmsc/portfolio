@@ -12,7 +12,7 @@ const Footer = () => {
     }
 
     return(
-        <Flex w='100%' bg='#0a0a23' position='fixed' bottom='0em' justify='center' align='center'>
+        <Flex w='100%' bg='#0a0a23' position='fixed' bottom='0em' justify='center' align='center' zIndex='2000'>
             <Text color='white' fontFamily="'Space Mono', monospace">
                  {message()}
             </Text>

@@ -6,7 +6,7 @@ const projectsData = [
     desc:'Memotest con 3 niveles de dificultad, timer y contador de intentos. HTML, CSS Y JS.',
     website:'https://sntmsc.github.io/memotest/',
     github:'https://github.com/sntmsc/memotest',
-    footer:'Jugar memotest hace bien a la memoria'},
+    footer:'Jugar memotest mejora la memoria'},
     {name:'To-do List',
     id:1,
     tags:['oficina'],
@@ -27,10 +27,10 @@ const projectsData = [
     id:3,
     tags:['e-commerce'],
     img:'./imgs/projects/cretona.png',
-    desc:'E-commerce diseñado para un emprendimiento. Dseño en CSS. Migración de HTML a React. Pseudo-backend con react-papaparse y Google sheets.',
+    desc:'E-commerce diseñado para un emprendimiento. Diseño en CSS. Migración de HTML a React. Pseudo-backend con react-papaparse y Google sheets.',
     website:'https://cretona-socks.netlify.app/',
     github:'https://github.com/sntmsc/Cretona-web-2.0',
-    footer:'Mi e-commerce te deja patas para arriba'},
+    footer:'Las medias son un lindo detalle'},
     {name:'Paises',
     id:4,
     tags:['info'],
@@ -38,7 +38,7 @@ const projectsData = [
     desc:'Página informativa sobre los países. La información se solicita a restcountries.com y openweathermap.org. React JS, Bootstrap, manejo de API REST. La idea del proyecto surge de una actividad en Fullstackopen.',
     website:'https://buscador-de-paises.netlify.app/',
     github:'https://github.com/sntmsc/buscador-de-paises',
-    footer:'Mantenete informadx!'}
+    footer:'¡Cuanto mundo por conocer!'}
 ];
 
 export default projectsData

@@ -11,8 +11,8 @@ const Projects = ({disclosure}) => {
         <Text
         fontFamily='Source Code Pro, monospace'
         fontSize='2em'
-        marginLeft='1em'
-        textDecoration='underline'>
+        textDecoration='underline'
+        ml='1em'>
           Proyectos
         </Text>
         <Flex

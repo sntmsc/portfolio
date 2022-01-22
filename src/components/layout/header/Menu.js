@@ -18,6 +18,9 @@ const Menu = () => {
     }
   return(
       <Stack
+      position='fixed'
+      top='0em'
+      zIndex='500'
       bg='#e1e1e1'
       boxShadow='0 4px 2px -2px '
       w='100%'
