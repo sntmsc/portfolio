@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from "react-redux";
 import projectsData from "../../../projectsData"
 import { useDispatch } from 'react-redux'
-import { selectProject } from './../../../reducers/ProjectReducer'
+import { selectProject, cleanProject } from './../../../reducers/ProjectReducer'
 import {
     Image,
     Box,
@@ -30,9 +30,14 @@ import {
     const projectsNames = projectsData.map((x)=>x.name);
     const {isOpen, onClose} = disclosure;
     const currentIndex = projectsNames.indexOf(project.name);
+
+    const handleClose = () =>{
+      dispatch(cleanProject())
+    }
+
     return (
       <>
-        <Modal isOpen={isOpen} onClose={onClose} size='2xl'>
+        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size='2xl'>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
@@ -66,7 +71,7 @@ import {
                           objectFit='cover'/>
                         </Box>
                         <Text
-                        fontFamily="'Cabin', sans-serif">
+                        fontFamily="'Space Mono', monospace">
                           Github
                         </Text>
                       </Flex>
@@ -86,7 +91,7 @@ import {
                           top='3px'/>
                         </Box>
                         <Text
-                        fontFamily="'Cabin', sans-serif" position='relative' bottom='2.3px'>
+                        fontFamily="'Space Mono', monospace" position='relative' bottom='2.3px'>
                           App
                         </Text>
                       </Flex>

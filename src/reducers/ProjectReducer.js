@@ -7,17 +7,21 @@ tags:[''],
 img:'',
 desc:'',
 website:'#',
-github:'#'}
+github:'#',
+footer:''}
 
 const projectSlice = createSlice({
     name: "projectSlice",
     initialState: initialProject,
     reducers: {
-      selectProject: (state, action) => {
+      selectProject: (state,action) => {
         return projectsData[action.payload];
       },
+      cleanProject: () =>{
+        return initialProject
+      }
     }
 })
 
-export const { selectProject } = projectSlice.actions;
+export const { selectProject, cleanProject } = projectSlice.actions;
 export default projectSlice.reducer
