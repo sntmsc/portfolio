@@ -7,15 +7,17 @@ const AboutMe = () => {
 
     const variants = {
         hidden:{
-            x: '200vw',
+            x: '-100vw'
         },
         visible: {
             x: '0',
+            opacity:1,
             transition: { duration: .7 }
         },
         exit: {
-            x:'200vw',
-            transition: { duration: .7 }
+            opacity: 0,
+            transition: {
+                ease: 'easeInOut' }
         }
     }
     return(

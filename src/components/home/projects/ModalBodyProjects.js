@@ -1,4 +1,4 @@
-import useEffect from 'react'
+import React from 'react'
 import { motion } from 'framer-motion';
 import {
     Image,
@@ -21,7 +21,7 @@ import {
       },
       exit: {
           opacity:0,
-          transition: { duration: .7 }
+          transition: { duration: .1 }
       }
   }
 

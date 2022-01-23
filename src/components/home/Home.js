@@ -10,15 +10,17 @@ const Home = () =>{
     const disclosure = useDisclosure();
     const variants = {
         hidden:{
-            x: '-200vw',
+            x: '-100vw',
         },
         visible: {
             x: '0',
             transition: { duration: .7 }
         },
         exit: {
-            x:'-200vw',
-            transition: { duration: .7 }
+            opacity: 0,
+            overflow:'hidden',
+            transition: {
+                ease: 'easeInOut' }
         }
     }
     return(
