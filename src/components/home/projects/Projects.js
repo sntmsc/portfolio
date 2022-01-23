@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Stack , Flex, Text  } from '@chakra-ui/react';
+import { Box, Stack , Flex } from '@chakra-ui/react';
 import projectsData from '../../../projectsData';
 import CardProject from './CardProject';
 import Subtitle from '../../../utils/Subtitle';

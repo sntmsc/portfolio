@@ -5,10 +5,6 @@ import { useDispatch } from 'react-redux'
 import { selectProject, cleanProject } from './../../../reducers/ProjectReducer'
 import {
     Image,
-    Box,
-    Flex,
-    HStack,
-    Text,
     Modal,
     ModalOverlay,
     ModalContent,

@@ -6,7 +6,6 @@ import AboutMe from './components/AboutMe';
 import Footer from './components/layout/Footer';
 import { AnimatePresence } from 'framer-motion';
 import {
-  BrowserRouter,
   Routes,
   Route,
   useLocation
