@@ -1,19 +1,23 @@
 import React from 'react'
 import { Stack , Text } from '@chakra-ui/react'
-
+import { NavLink } from 'react-router-dom'
+import './Menu.css'
 const Menu = () => {
-    const CustomText = ({children}) => {
+    const CustomText = ({children,link}) => {
+
       return(
-        <Text
-        fontSize='xl'
-        fontFamily='Source Code Pro, monospace'
-        fontWeight='bold'
-        cursor='pointer'
-        _hover={{
-            textDecoration:'underline'
-        }}>
-          {children}
-        </Text>
+          <Text
+          fontSize='xl'
+          fontFamily='Source Code Pro, monospace'
+          fontWeight='bold'
+          cursor='pointer'
+          _hover={{
+              textDecoration:'underline'
+          }}>
+            <NavLink to={link}>
+              {children}
+            </NavLink>
+          </Text>
       )
     }
   return(
@@ -30,15 +34,12 @@ const Menu = () => {
       align='center'
       spacing='1em'
       pr='1em'>
-        <CustomText>
-          Home 
-        </CustomText>
-        <CustomText>
-          Sobre mi 
-        </CustomText>
-        <CustomText>
-          Contactos
-        </CustomText>
+          <CustomText link='/'>
+            Home
+          </CustomText>
+          <CustomText link='/about'>
+            Sobre mi/Contactos
+          </CustomText>
       </Stack>
     )
   }

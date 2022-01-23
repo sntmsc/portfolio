@@ -1,10 +1,16 @@
 import React from 'react'
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
 import { Flex, Text } from '@chakra-ui/react'
+import { useLocation } from 'react-router-dom'
+
 const Footer = () => {
     const project = useSelector(state => state.project)
-
+    const location = useLocation()
+    console.log(location.pathname)
     const message = () => {
+        if(location.pathname ==='/about'){
+            return '¡No dudes en contactarme!'
+        }
         if(project.footer ===''){
             return 'Gracias por tu interés en mi perfil'
         }

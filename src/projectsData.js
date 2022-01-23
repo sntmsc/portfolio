@@ -35,7 +35,7 @@ const projectsData = [
     id:4,
     tags:['info'],
     img:'./imgs/projects/paises.png',
-    desc:'Página informativa sobre los países. La información se solicita a restcountries.com y openweathermap.org. React JS, Bootstrap, manejo de API REST. La idea del proyecto surge de una actividad en Fullstackopen.',
+    desc:'Página informativa sobre los países. La información se solicita a restcountries.com y openweathermap.org. React JS, Bootstrap, manejo de API REST.',
     website:'https://buscador-de-paises.netlify.app/',
     github:'https://github.com/sntmsc/buscador-de-paises',
     footer:'¡Cuanto mundo por conocer!'}

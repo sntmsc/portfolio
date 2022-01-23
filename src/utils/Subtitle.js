@@ -7,6 +7,7 @@ const Subtitle = ({txt}) => {
         fontSize='2em'
         textDecoration='underline'
         ml='1em'
+        mt='3em'
         mb='2em'>
           {txt}
         </Text>
