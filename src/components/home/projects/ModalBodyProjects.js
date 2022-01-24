@@ -13,21 +13,19 @@ import {
 
     const variants = {
       hidden:{
-          opacity: 0,
+          opacity:0 ,
+          transition: { duration: .7 }
       },
       visible: {
           opacity: 1,
           transition: { duration: .7 }
       },
-      exit: {
-          opacity:0,
-          transition: { duration: .1 }
-      }
   }
 
     return(
           <Flex
           as={motion.div}
+          key={project.name}
           position='relative'
           justify='center'
           align='center'

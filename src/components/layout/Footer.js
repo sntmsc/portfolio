@@ -4,9 +4,10 @@ import { Flex, Text } from '@chakra-ui/react'
 import { useLocation } from 'react-router-dom'
 
 const Footer = () => {
+
     const project = useSelector(state => state.project)
     const location = useLocation()
-    console.log(location.pathname)
+    
     const message = () => {
         if(location.pathname ==='/about'){
             return '¡No dudes en contactarme!'

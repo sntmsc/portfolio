@@ -13,10 +13,10 @@ import {
     ModalBody,
     ModalCloseButton,
     Button,
-    Link
   } from '@chakra-ui/react'
   import {ArrowLeftIcon, ArrowRightIcon} from '@chakra-ui/icons'
   import ModalBodyProjects from './ModalBodyProjects';
+  import { motion } from 'framer-motion';
 
 
 
@@ -34,20 +34,26 @@ import {
 
     return (
       <>
-        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size='2xl'>
+        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size='2xl' overflow='hidden'scrollBehavior='inside' overflow='hidden'>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
+            as={motion.h1}
+            key={project.name}
+            initial={{opacity: 0,transition: { duration: .7 }}}
+            animate={{opacity: 1,transition: { duration: .7 }}}
             fontSize='3em'
             fontFamily="'Cabin', sans-serif"
             w='100%'
             mt='1em'
+            jusitfy='center'
+            align='center'
             textAlign='center'>
               {project.name}
             </ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-            <ModalBodyProjects project={project}/>
+              <ModalBodyProjects project={project}/>
                   <Image
                   as={ArrowLeftIcon}
                   onClick={()=>dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))}
