@@ -9,7 +9,7 @@ import {
     Link
   } from '@chakra-ui/react'
 
-  const ModalBodyProjects = ({project}) => {
+  const ModalBodyProjects = ({project,max800}) => {
 
     const variants = {
       hidden:{
@@ -95,7 +95,7 @@ import {
               p='1em'
               borderRadius='15px'
               fontFamily="'Cabin', sans-serif"
-              h='10em'>
+              h={max800 ? '11em' : {base:'10em',md:'8em'}}>
                 {project.desc}
               </Text>
             </Flex>

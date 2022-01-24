@@ -4,6 +4,7 @@ import projectsData from "../../../projectsData"
 import { useDispatch } from 'react-redux'
 import { selectProject, cleanProject } from './../../../reducers/ProjectReducer'
 import {
+    Flex,
     Image,
     Modal,
     ModalOverlay,
@@ -57,7 +58,7 @@ import {
             pt={10}
             pb={20}
             align='center'>
-              <ModalBodyProjects project={project}/>
+              <ModalBodyProjects project={project} max800={queryMaxHeight800}/>
                   <Image
                   as={ArrowLeftIcon}
                   onClick={()=>dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))}
@@ -82,12 +83,16 @@ import {
                   }}/>
             </ModalBody>
             {!queryMaxHeight800 && 
-            <ModalFooter 
+            <ModalFooter
+            as={Flex}
+            wrap='wrap'
             display={{base:'none',md:'flex'}}
             justifyContent='center'>
             {projectsNames.map((x,i)=>
               <Button
               variant={x !== project.name ? 'outline' : 'solid'}
+              mb='1em'
+              w='8em'
               mr={3}
               fontFamily='Source Code Pro, monospace'
               onClick={()=>dispatch(selectProject(projectsNames.indexOf(x)))}

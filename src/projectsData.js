@@ -38,7 +38,15 @@ const projectsData = [
     desc:'Página informativa sobre los países. La información se solicita a restcountries.com y openweathermap.org. React JS, Bootstrap, manejo de API REST.',
     website:'https://buscador-de-paises.netlify.app/',
     github:'https://github.com/sntmsc/buscador-de-paises',
-    footer:'¡Cuanto mundo por conocer!'}
+    footer:'¡Cuanto mundo por conocer!'},
+    {name:'Portfolio',
+    id:5,
+    tags:['personal'],
+    img:'./imgs/projects/portfolio.png',
+    desc:'Web de presentación personal. React JS, Redux toolkit, Chrakra UI y Framer Motion',
+    website:'https://santiago-hamber.netlify.app/',
+    github:'https://github.com/sntmsc/portfolio',
+    footer:'Este proyecto me resulta conocido'}
 ];
 
 export default projectsData
