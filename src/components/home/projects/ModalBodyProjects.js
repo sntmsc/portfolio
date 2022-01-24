@@ -95,7 +95,7 @@ import {
               p='1em'
               borderRadius='15px'
               fontFamily="'Cabin', sans-serif"
-              h={{base:'12em',md:'8em'}}>
+              h='10em'>
                 {project.desc}
               </Text>
             </Flex>

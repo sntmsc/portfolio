@@ -13,6 +13,7 @@ import {
     ModalBody,
     ModalCloseButton,
     Button,
+    useMediaQuery
   } from '@chakra-ui/react'
   import {ArrowLeftIcon, ArrowRightIcon} from '@chakra-ui/icons'
   import ModalBodyProjects from './ModalBodyProjects';
@@ -27,14 +28,14 @@ import {
     const projectsNames = projectsData.map((x)=>x.name);
     const {isOpen, onClose} = disclosure;
     const currentIndex = projectsNames.indexOf(project.name);
+    const [queryMaxHeight800] = useMediaQuery('(max-height: 800px)');
 
     const handleClose = () =>{
       dispatch(cleanProject())
     }
-
     return (
       <>
-        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size='2xl'>
+        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size={queryMaxHeight800? 'sm' : 'xl'}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
@@ -42,24 +43,27 @@ import {
             key={project.name}
             initial={{opacity: 0,transition: { duration: .7 }}}
             animate={{opacity: 1,transition: { duration: .7 }}}
-            fontSize='3em'
+            fontSize={queryMaxHeight800?'2em' : '3em'}
             fontFamily="'Cabin', sans-serif"
             w='100%'
-            mt='1em'
+            mt={queryMaxHeight800?'0' : '1em'}
             jusitfy='center'
             align='center'
             textAlign='center'>
               {project.name}
             </ModalHeader>
             <ModalCloseButton />
-            <ModalBody>
+            <ModalBody
+            pt={10}
+            pb={20}
+            align='center'>
               <ModalBodyProjects project={project}/>
                   <Image
                   as={ArrowLeftIcon}
                   onClick={()=>dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))}
                   alt='left option'
                   position='absolute'
-                  top='21em'
+                  top='23em'
                   left='10px'
                   boxSize='2em'
                   _hover={{
@@ -70,13 +74,14 @@ import {
                   onClick={()=>dispatch(selectProject(currentIndex < projectsData.length - 1 ? currentIndex + 1 : 0))}
                   alt='right option'
                   position='absolute'
-                  top='21em'
+                  top='23em'
                   right='10px'
                   boxSize='2em'
                   _hover={{
                     cursor:'pointer'
                   }}/>
             </ModalBody>
+            {!queryMaxHeight800 && 
             <ModalFooter 
             display={{base:'none',md:'flex'}}
             justifyContent='center'>
@@ -91,6 +96,7 @@ import {
             </Button>            
             )}
             </ModalFooter>
+            }
           </ModalContent>
         </Modal>
       </>
