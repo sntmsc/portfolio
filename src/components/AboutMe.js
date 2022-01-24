@@ -36,6 +36,15 @@ const AboutMe = () => {
                 justify='center'
                 align='center'>
                     <Flex
+                    as={motion.div}
+                    key='card'
+                    initial={{
+                        rotate: 0,
+                        scale:.8}}
+                    animate={{
+                        rotate: [1,0,-1,0,1,0,-1,0],
+                        scale:1,
+                        transition: {delay:.5, duration: .5 }}}
                     w={{base:'90%',md:'50%'}}
                     justify='center'
                     align='center'

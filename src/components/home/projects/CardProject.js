@@ -2,8 +2,19 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { selectProject } from './../../../reducers/ProjectReducer'
 import {  Flex, Text, Image  } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 
       const CardProject = ({name,tags,index,img,disclosure}) => {
+
+        const variants = {
+          init:{
+              scale:1 
+          },
+          hover: {
+              scale: 1.2,
+              transition: { duration: .3 }
+          },
+      }
         const {onOpen} = disclosure;
         const dispatch = useDispatch();
         const projectFocus = (i) => {
@@ -11,14 +22,17 @@ import {  Flex, Text, Image  } from '@chakra-ui/react'
         }
         return(
           <Flex
+          as={motion.div}
+          variants={variants}
+          initial='init'
+          whileHover='hover'
           onClick={()=>{projectFocus(index);onOpen()}}
-          role='group'
           flexDirection='column'
           justify='center'
           position='relative'
           align='center'
-          width='10em'
-          height='15em'
+          w='10em'
+          h='15em'
           _hover={{cursor:'pointer'}}>
             <Image
                   boxSize='8em'
@@ -29,9 +43,7 @@ import {  Flex, Text, Image  } from '@chakra-ui/react'
                   src={img}
                   alt='project'
                   boxShadow=' 0 0 0 2px black'
-                  objectFit='cover'
-                  _groupHover={{boxSize:'10em'}}
-                  _groupActive={{boxSize:'10em'}}/>
+                  objectFit='cover'/>
                   
             <Text 
             fontFamily="'Cabin', sans-serif"

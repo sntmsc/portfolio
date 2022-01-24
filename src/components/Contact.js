@@ -1,14 +1,29 @@
 import React from 'react'
 import Subtitle from '../utils/Subtitle'
 import { Flex, Link, Text, Image } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 
 const Contact = () => {
+
+    const variants = {
+        init:{
+            scale:1 
+        },
+        hover: {
+            scale: 1.2,
+            transition: { duration: .3 }
+        },
+    }
+  
 
     const CustomImg = ({img,desc,dir}) => {
         return(
             <Link href={dir} isExternal style={{textDecoration:'none'}}>
                 <Flex
-                role='group'
+                as={motion.div}
+                variants={variants}
+                initial='init'
+                whileHover='hover'
                 w='8em'
                 h='5em'
                 mb='5em'
@@ -19,12 +34,11 @@ const Contact = () => {
                     cursor:'pointer'
                 }}>
                     <Image
+                    as={motion.img}
                     src={img}
                     alt={desc}
                     objectFit='cover'
-                    boxSize={desc === 'Linkedin' || 'Gihtub' ? '5.95em' : '6em'}
-                    _groupHover={{boxSize:'10em'}}
-                    _groupActive={{boxSize:'10em'}}/>
+                    boxSize={desc === 'Linkedin' || 'Gihtub' ? '5.95em' : '6em'}/>
                     <Text
                     textAlign='center'
                     fontFamily="'Cabin', sans-serif"
