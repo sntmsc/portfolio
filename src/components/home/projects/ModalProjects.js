@@ -34,7 +34,7 @@ import {
 
     return (
       <>
-        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size='2xl' overflow='hidden'scrollBehavior='inside' overflow='hidden'>
+        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size='2xl'>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
