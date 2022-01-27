@@ -83,21 +83,21 @@ import {
               boxSize='15em'
               mb='1em'
               boxShadow='dark-lg'/>
-            <Flex
-            justify='center'
-            w='70%'
-            bg='#9c8e8e'
-            p='2px'
-            border='2px'
-            mb='1em'>
-              <Text
-              bg='#e1e1e1'
-              p='1em'
-              borderRadius='15px'
-              fontFamily="'Cabin', sans-serif"
-              h={max800 ? '11em' : {base:'10em',md:'8em'}}>
-                {project.desc}
-              </Text>
+              <Flex
+              justify='center'
+              w='70%'
+              bg='#9c8e8e'
+              p='2px'
+              border='2px'
+              mb='1em'>
+                <Text
+                bg='#e1e1e1'
+                p='1em'
+                borderRadius='15px'
+                fontFamily="'Cabin', sans-serif"
+                h={max800 ? '12em' : {base:'12em',md:'8em'}}>
+                  {project.desc}
+                </Text>
             </Flex>
           </Flex>
     )

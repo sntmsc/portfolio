@@ -36,7 +36,7 @@ import {
     }
     return (
       <>
-        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size={queryMaxHeight800? 'sm' : 'xl'}>
+        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} >
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
@@ -64,7 +64,7 @@ import {
                   onClick={()=>dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))}
                   alt='left option'
                   position='absolute'
-                  top='23em'
+                  top='50%'
                   left='10px'
                   boxSize='2em'
                   _hover={{
@@ -75,7 +75,7 @@ import {
                   onClick={()=>dispatch(selectProject(currentIndex < projectsData.length - 1 ? currentIndex + 1 : 0))}
                   alt='right option'
                   position='absolute'
-                  top='23em'
+                  top='50%'
                   right='10px'
                   boxSize='2em'
                   _hover={{

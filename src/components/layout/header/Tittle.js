@@ -22,7 +22,7 @@ const Tittle = () => {
           variants={variants}
           initial='initial'
           animate='animate'
-          fontSize='6xl'
+          fontSize={{base:'5xl',md:'6xl'}}
           fontFamily='Oswald, sans-serif'
           textAlign='center'>
             Santiago Hamber
@@ -33,7 +33,7 @@ const Tittle = () => {
           variants={variants}
           initial='initial'
           animate={{scale: 1,transition: { duration: 1.5 }}}
-          fontSize='4xl'
+          fontSize={{base:'3xl',md:'4xl'}}
           fontFamily='Oswald, sans-serif'
           color='gray.600'>
             Frontend developer
