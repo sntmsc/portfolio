@@ -36,7 +36,7 @@ import {
     }
     return (
       <>
-        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} >
+        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size='xl'>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
