@@ -9,7 +9,7 @@ import {
     Link
   } from '@chakra-ui/react'
 
-  const ModalBodyProjects = ({project,max800}) => {
+  const ModalBodyProjects = ({project,maxH800, minW800}) => {
 
     const variants = {
       hidden:{
@@ -22,7 +22,8 @@ import {
       },
   }
 
-    return(
+
+  return(
           <Flex
           as={motion.div}
           key={project.name}
@@ -76,28 +77,41 @@ import {
                 </Flex>
               </Link>
             </HStack>
-              <Image 
-              src={project.img}
-              alt={project.name}
-              objectFit='cover'
-              boxSize='15em'
-              mb='1em'
-              boxShadow='dark-lg'/>
               <Flex
-              justify='center'
-              w='70%'
-              bg='#9c8e8e'
-              p='2px'
-              border='2px'
-              mb='1em'>
-                <Text
-                bg='#e1e1e1'
-                p='1em'
-                borderRadius='15px'
-                fontFamily="'Cabin', sans-serif"
-                h={max800 ? '12em' : {base:'12em',md:'8em'}}>
-                  {project.desc}
-                </Text>
+              direction={maxH800 && minW800 ? 'row' : 'column'}
+              align='center'
+              w='80%'>
+                <Image 
+                src={project.img}
+                alt={project.name}
+                objectFit='cover'
+                boxSize='15em'
+                borderRadius={maxH800 && minW800 ? '15px' : '0'}
+                mb='1em'
+                boxShadow='dark-lg'/>
+                <Flex
+                visibility={maxH800 && minW800 ? 'hidden' : 'visible'}
+                justify='center'
+                w={maxH800 && minW800 ? '70%' : '100%'}
+                bg='#9c8e8e'
+                p='2px'
+                border='2px'
+                mb='1em'>
+                  <Text
+                  visibility='visible'
+                  bg='#e1e1e1'
+                  p='1em'
+                  borderRadius='15px'
+                  fontFamily="'Cabin', sans-serif"
+                  h={maxH800 && minW800 ? '15em' : {base:'10em',md:'8em'}}
+                  w={maxH800 && minW800 ? '15em' : ''}
+                  ml={maxH800 && minW800 ? '.5em' : '0'}
+                  boxShadow={maxH800 && minW800 ? 'dark-lg' : ''}
+                  textAlign='center'
+                  justify='center'>
+                    {project.desc}
+                  </Text>
+              </Flex>
             </Flex>
           </Flex>
     )

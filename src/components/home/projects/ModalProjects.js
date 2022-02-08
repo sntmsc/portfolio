@@ -24,19 +24,27 @@ import {
 
   const ModalProjects = ({disclosure}) =>  {
 
+    const arrow = {
+      init: { scale: 1 },
+      pressed: { scale: 1.5, transition:{duration:0.4}},
+    }
+
     const project = useSelector(state => state.project);
     const dispatch = useDispatch();
     const projectsNames = projectsData.map((x)=>x.name);
     const {isOpen, onClose} = disclosure;
     const currentIndex = projectsNames.indexOf(project.name);
-    const [queryMaxHeight800] = useMediaQuery('(max-height: 800px)');
+    const [queryMaxHeight800,queryMinWidth800] = useMediaQuery(['(max-height: 800px)','(min-width: 800px)']);
 
     const handleClose = () =>{
       dispatch(cleanProject())
     }
     return (
       <>
-        <Modal isOpen={isOpen} onClose={()=>{handleClose();onClose()}} size='xl'>
+        <Modal 
+        isOpen={isOpen} 
+        onClose={()=>{handleClose();onClose()}} 
+        size={queryMaxHeight800 && queryMinWidth800 ? '2xl' : 'xl'}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
@@ -58,29 +66,41 @@ import {
             pt={10}
             pb={20}
             align='center'>
-              <ModalBodyProjects project={project} max800={queryMaxHeight800}/>
-                  <Image
-                  as={ArrowLeftIcon}
-                  onClick={()=>dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))}
-                  alt='left option'
+              <ModalBodyProjects project={project} maxH800={queryMaxHeight800} minW800={queryMinWidth800}/>
+                  <Flex
+                  as={motion.div}
+                  variants={arrow}
+                  initial="init"
+                  whileTap="pressed"
                   position='absolute'
                   top='50%'
-                  left='10px'
-                  boxSize='2em'
-                  _hover={{
-                    cursor:'pointer'
-                  }}/>
-                  <Image
-                  as={ArrowRightIcon}
-                  onClick={()=>dispatch(selectProject(currentIndex < projectsData.length - 1 ? currentIndex + 1 : 0))}
-                  alt='right option'
+                  left='10px'>   
+                    <Image
+                    as={ArrowLeftIcon}
+                    onClick={()=>dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))}
+                    alt='left option'
+                    boxSize='2em'
+                    _hover={{
+                      cursor:'pointer'
+                    }}/>
+                  </Flex>
+                  <Flex
+                  as={motion.div}
+                  variants={arrow}
+                  initial="init"
+                  whileTap="pressed"
                   position='absolute'
                   top='50%'
-                  right='10px'
-                  boxSize='2em'
-                  _hover={{
-                    cursor:'pointer'
-                  }}/>
+                  right='10px'>
+                    <Image
+                    as={ArrowRightIcon}
+                    onClick={()=>dispatch(selectProject(currentIndex < projectsData.length - 1 ? currentIndex + 1 : 0))}
+                    alt='right option'
+                    boxSize='2em'
+                    _hover={{
+                      cursor:'pointer'
+                    }}/>
+                  </Flex>
             </ModalBody>
             {!queryMaxHeight800 && 
             <ModalFooter
