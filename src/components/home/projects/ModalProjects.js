@@ -27,6 +27,7 @@ import {
     const arrow = {
       init: { scale: 1 },
       pressed: { scale: 1.5, transition:{duration:0.4}},
+      focus: { scale: 1.5, transition:{duration:0.4}},
     }
 
     const project = useSelector(state => state.project);
@@ -44,7 +45,7 @@ import {
         <Modal 
         isOpen={isOpen} 
         onClose={()=>{handleClose();onClose()}} 
-        size={queryMaxHeight800 && queryMinWidth800 ? '2xl' : 'xl'}>
+        size={queryMinWidth800 ? '2xl' : 'xl'}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
@@ -63,15 +64,18 @@ import {
             </ModalHeader>
             <ModalCloseButton />
             <ModalBody
-            pt={10}
-            pb={20}
-            align='center'>
-              <ModalBodyProjects project={project} maxH800={queryMaxHeight800} minW800={queryMinWidth800}/>
+            display='flex'
+            pt={5}
+            pb={5}
+            align='center'
+            justify='center'>
+              <ModalBodyProjects project={project} minW800={queryMinWidth800}/>
                   <Flex
                   as={motion.div}
                   variants={arrow}
                   initial="init"
                   whileTap="pressed"
+                  whileFocus="focus"
                   position='absolute'
                   top='50%'
                   left='10px'>   
@@ -89,6 +93,7 @@ import {
                   variants={arrow}
                   initial="init"
                   whileTap="pressed"
+                  whileFocus="focus"
                   position='absolute'
                   top='50%'
                   right='10px'>
@@ -102,13 +107,13 @@ import {
                     }}/>
                   </Flex>
             </ModalBody>
-            {!queryMaxHeight800 && 
             <ModalFooter
             as={Flex}
             wrap='wrap'
             display={{base:'none',md:'flex'}}
             justifyContent='center'>
-            {projectsNames.map((x,i)=>
+                          {!queryMaxHeight800 &&
+            projectsNames.map((x,i)=>
               <Button
               variant={x !== project.name ? 'outline' : 'solid'}
               mb='1em'
@@ -121,7 +126,6 @@ import {
             </Button>            
             )}
             </ModalFooter>
-            }
           </ModalContent>
         </Modal>
       </>

@@ -4,12 +4,11 @@ import {
     Image,
     Box,
     Flex,
-    HStack,
     Text,
     Link
   } from '@chakra-ui/react'
 
-  const ModalBodyProjects = ({project,maxH800, minW800}) => {
+  const ModalBodyProjects = ({project, minW800}) => {
 
     const variants = {
       hidden:{
@@ -25,20 +24,22 @@ import {
 
   return(
           <Flex
+          w='100%'
           as={motion.div}
           key={project.name}
           position='relative'
-          justify='center'
           align='center'
           direction='column'
           variants={variants}
           initial='hidden'
           animate='visible'
           exit='exit'>
-            <HStack
-            spacing='29px'
+            <Flex
+            justify='center'
+            align='center'
+            gridGap={5}
             mb='1em'>
-              <Link href={project.github} isExternal>
+              <Link href={project.github} isExternal display='flex'>
                 <Flex
                 direction='column'
                 justify='center'
@@ -60,6 +61,7 @@ import {
                 <Flex
                 direction='column'
                 justify='center'
+                position='relative'
                 align='center'>
                   <Box
                   boxSize='40px'>
@@ -76,41 +78,45 @@ import {
                   </Text>
                 </Flex>
               </Link>
-            </HStack>
+            </Flex>
               <Flex
-              direction={maxH800 && minW800 ? 'row' : 'column'}
+              spacing='29px'
+              flexDirection={minW800 ? 'row' : 'column'}
               align='center'
-              w='80%'>
+              justify='space-around'
+              w='100%'>
                 <Image 
                 src={project.img}
                 alt={project.name}
                 objectFit='cover'
                 boxSize='15em'
-                borderRadius={maxH800 && minW800 ? '15px' : '0'}
-                mb='1em'
+                borderRadius={minW800 ? '15px' : '0'}
                 boxShadow='dark-lg'/>
                 <Flex
-                visibility={maxH800 && minW800 ? 'hidden' : 'visible'}
+                visibility={minW800 ? 'hidden' : 'visible'}
                 justify='center'
-                w={maxH800 && minW800 ? '70%' : '100%'}
+                align='center'
+                mt={minW800 ? '0' : '.5em'}
                 bg='#9c8e8e'
                 p='2px'
-                border='2px'
-                mb='1em'>
-                  <Text
-                  visibility='visible'
-                  bg='#e1e1e1'
-                  p='1em'
-                  borderRadius='15px'
-                  fontFamily="'Cabin', sans-serif"
-                  h={maxH800 && minW800 ? '15em' : {base:'10em',md:'8em'}}
-                  w={maxH800 && minW800 ? '15em' : ''}
-                  ml={maxH800 && minW800 ? '.5em' : '0'}
-                  boxShadow={maxH800 && minW800 ? 'dark-lg' : ''}
-                  textAlign='center'
-                  justify='center'>
-                    {project.desc}
-                  </Text>
+                border='2px'>
+                  <Flex
+                    align='center'
+                    visibility='visible'
+                    bg='#e1e1e1'
+                    p='1em'
+                    borderRadius='15px'
+                    h={minW800 ? '15em' : {base:'10em',md:'8em'}}
+                    w={minW800 ? '15em' : ''}
+                    boxShadow={minW800 ? 'dark-lg' : ''}
+                    justify='center'
+                  >
+                    <Text
+                    fontFamily="'Cabin', sans-serif"
+                    textAlign='center'>
+                      {project.desc}
+                    </Text>
+                  </Flex>
               </Flex>
             </Flex>
           </Flex>

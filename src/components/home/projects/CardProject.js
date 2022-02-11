@@ -7,14 +7,10 @@ import { motion } from 'framer-motion'
       const CardProject = ({name,tags,index,img,disclosure}) => {
 
         const variants = {
-          init:{
-              scale:1 
-          },
-          hover: {
-              scale: 1.2,
-              transition: { duration: .3 }
-          },
-      }
+          init: { scale: 1 },
+          value: { scale: 1.2, transition:{duration:0.3}}
+        }
+  
         const {onOpen} = disclosure;
         const dispatch = useDispatch();
         const projectFocus = (i) => {
@@ -25,7 +21,9 @@ import { motion } from 'framer-motion'
           as={motion.div}
           variants={variants}
           initial='init'
-          whileHover='hover'
+          whileTap="value"
+          whileFocus="value"
+          whileHover="value"
           onClick={()=>{projectFocus(index);onOpen()}}
           flexDirection='column'
           justify='center'
@@ -44,7 +42,6 @@ import { motion } from 'framer-motion'
                   alt='project'
                   boxShadow=' 0 0 0 2px black'
                   objectFit='cover'/>
-                  
             <Text 
             fontFamily="'Cabin', sans-serif"
             fontSize='1.5em'

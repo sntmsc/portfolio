@@ -6,24 +6,22 @@ import { motion } from 'framer-motion'
 const Contact = () => {
 
     const variants = {
-        init:{
-            scale:1 
-        },
-        hover: {
-            scale: 1.2,
-            transition: { duration: .3 }
-        },
-    }
+        init: { scale: 1 },
+        value: { scale: 1.2, transition:{duration:0.4}}
+      }
+
   
 
     const CustomImg = ({img,desc,dir}) => {
         return(
-            <Link href={dir} isExternal style={{textDecoration:'none'}}>
+            <Link href={dir} isExternal style={{textDecoration:'none'}} color='inherit'>
                 <Flex
                 as={motion.div}
-                variants={variants}
-                initial='init'
-                whileHover='hover'
+                  variants={variants}
+                  initial="init"
+                  whileTap="value"
+                  whileFocus="value"
+                  whileHover="value"
                 w='8em'
                 h='5em'
                 mb='5em'
