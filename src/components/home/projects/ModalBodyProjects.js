@@ -37,9 +37,9 @@ import {
             <Flex
             justify='center'
             align='center'
-            gridGap={5}
+            gridGap={10}
             mb='1em'>
-              <Link href={project.github} isExternal display='flex'>
+              <Link href={project.github} isExternal display='flex' mr='1em'>
                 <Flex
                 direction='column'
                 justify='center'
