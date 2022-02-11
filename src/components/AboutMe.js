@@ -57,7 +57,7 @@ const AboutMe = () => {
                         border='2px'
                         overflow='hidden'>
                         <Image
-                        src='./imgs/me.jpeg'/>
+                        src='./imgs/me.png'/>
                         </Box>
                         <Flex
                         w={{base:'90%',md:'50%'}}
