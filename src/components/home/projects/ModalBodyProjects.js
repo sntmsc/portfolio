@@ -113,7 +113,8 @@ import {
                   >
                     <Text
                     fontFamily="'Cabin', sans-serif"
-                    textAlign='center'>
+                    textAlign='center'
+                    fontWeight='600'>
                       {project.desc}
                     </Text>
                   </Flex>

@@ -49,8 +49,9 @@ const AboutMe = () => {
                     justify='center'
                     align='center'
                     direction={{base:'column',md:'row'}}
+                    boxShadow='black 5px 5px'
+                    border='black 2px solid'
                     bg='#d0d0d5'
-                    borderRadius='5px'
                     p='1em'>
                         <Box
                         boxSize={{base:'15em',md:'20em'}}
