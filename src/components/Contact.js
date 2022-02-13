@@ -1,6 +1,6 @@
 import React from 'react'
 import Subtitle from '../utils/Subtitle'
-import { Flex, Link, Text, Image } from '@chakra-ui/react'
+import { Flex, Text, Image } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 const Contact = () => {
@@ -14,7 +14,7 @@ const Contact = () => {
 
     const CustomImg = ({img,desc,dir}) => {
         return(
-            <Link href={dir} isExternal style={{textDecoration:'none'}} color='inherit'>
+            <a href={dir} target="_blank" rel="noreferrer" style={{textDecoration:'none'}}>
                 <Flex
                 as={motion.div}
                   variants={variants}
@@ -45,7 +45,7 @@ const Contact = () => {
                         {desc}
                     </Text>
                 </Flex>
-            </Link>
+            </a>
         )
     }
     return(
