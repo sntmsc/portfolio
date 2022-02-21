@@ -17,7 +17,7 @@ import {
       },
       visible: {
           opacity: 1,
-          transition: { duration: .7 }
+          transition: { duration: 1 }
       },
   }
 
@@ -39,7 +39,7 @@ import {
             align='center'
             gridGap={10}
             mb='1em'>
-              <Link href={project.github} isExternal display='flex' mr='1em'>
+              <Link href={project.github} isExternal display='flex' mr='1em' userSelect = 'none'>
                 <Flex
                 direction='column'
                 justify='center'
@@ -57,7 +57,7 @@ import {
                   </Text>
                 </Flex>
               </Link>
-              <Link href={project.website} isExternal>
+              <Link href={project.website} isExternal userSelect = 'none'>
                 <Flex
                 direction='column'
                 justify='center'
@@ -86,6 +86,7 @@ import {
               justify='space-around'
               w='100%'>
                 <Image 
+                userSelect = 'none'
                 src={project.img}
                 alt={project.name}
                 objectFit='cover'

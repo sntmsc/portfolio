@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import { useSelector } from "react-redux";
 import projectsData from "../../../projectsData"
 import { useDispatch } from 'react-redux'
@@ -24,10 +24,19 @@ import {
 
   const ModalProjects = ({disclosure}) =>  {
 
+    const [arrowRightClick, setArrowRightClick] = useState(false);
+    const [arrowLeftClick, setArrowLeftClick] = useState(false);
+
+    const animateClick = (setValue) => {
+      setValue(true);
+      console.log('prueba')
+      setTimeout(() => {
+        setValue(false);
+      },200);
+    }
     const arrow = {
       init: { scale: 1 },
-      pressed: { scale: 1.5, transition:{duration:0.4}},
-      focus: { scale: 1.5, transition:{duration:0.4}},
+      value: { scale: 1.2, transition:{duration:0.2}},
     }
 
     const project = useSelector(state => state.project);
@@ -75,14 +84,16 @@ import {
                   as={motion.div}
                   variants={arrow}
                   initial="init"
-                  whileTap="pressed"
-                  whileFocus="focus"
+                  animate={arrowLeftClick ? 'value' : 'init'}
                   position='absolute'
                   top='50%'
                   left='10px'>   
                     <Image
                     as={ArrowLeftIcon}
-                    onClick={()=>dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))}
+                    onClick={()=>{
+                      animateClick(setArrowLeftClick);
+                      dispatch(selectProject(currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1))
+                    }}
                     alt='left option'
                     boxSize='2em'
                     _hover={{
@@ -94,14 +105,16 @@ import {
                   as={motion.div}
                   variants={arrow}
                   initial="init"
-                  whileTap="pressed"
-                  whileFocus="focus"
+                  animate={arrowRightClick ? 'value' : 'init'}
                   position='absolute'
                   top='50%'
                   right='10px'>
                     <Image
                     as={ArrowRightIcon}
-                    onClick={()=>dispatch(selectProject(currentIndex < projectsData.length - 1 ? currentIndex + 1 : 0))}
+                    onClick={()=>{
+                      animateClick(setArrowRightClick);
+                      dispatch(selectProject(currentIndex < projectsData.length - 1 ? currentIndex + 1 : 0))
+                    }}
                     alt='right option'
                     boxSize='2em'
                     _hover={{
