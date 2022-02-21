@@ -29,7 +29,6 @@ import {
 
     const animateClick = (setValue) => {
       setValue(true);
-      console.log('prueba')
       setTimeout(() => {
         setValue(false);
       },200);
