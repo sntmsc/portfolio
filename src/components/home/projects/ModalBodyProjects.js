@@ -112,6 +112,7 @@ import {
                     justify='center'
                   >
                     <Text
+                    userSelect = 'none'
                     fontFamily="'Cabin', sans-serif"
                     textAlign='center'
                     fontWeight='600'>

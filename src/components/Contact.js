@@ -14,7 +14,7 @@ const Contact = () => {
 
     const CustomImg = ({img,desc,dir}) => {
         return(
-            <a href={dir} target="_blank" rel="noreferrer" style={{textDecoration:'none'}}>
+            <a href={dir} target="_blank" rel="noreferrer" style={{textDecoration:'none'}} className='tap-mobile'>
                 <Flex
                 as={motion.div}
                   variants={variants}

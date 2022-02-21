@@ -71,6 +71,7 @@ import {
             justify='center'>
               <ModalBodyProjects project={project} minW800={queryMinWidth800}/>
                   <Flex
+                  className='tap-mobile'
                   as={motion.div}
                   variants={arrow}
                   initial="init"
@@ -89,6 +90,7 @@ import {
                     }}/>
                   </Flex>
                   <Flex
+                  className='tap-mobile'
                   as={motion.div}
                   variants={arrow}
                   initial="init"
