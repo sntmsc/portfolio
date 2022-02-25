@@ -44,7 +44,7 @@ const projectsData = [
     tags:['personal','tools'],
     img:'./imgs/projects/tinoTools.png',
     desc:'App de herramientas musicales creadas con Tone.js, React JS y Chakra UI',
-    website:'https://tino-tools.netlify.app/',
+    website:'https://tinotools.netlify.app/',
     github:'https://github.com/sntmsc/music-tools',
     footer:"Please don't stop the music"},
     {name:'Portfolio',
