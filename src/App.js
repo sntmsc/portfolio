@@ -17,10 +17,8 @@ function App() {
     <div>
             <Menu/>
             <AnimatePresence exitBeforeEnter>
-              <Routes location={location} key={location.key}>
-                <Route path="/" element={<Home/>}/>
-                <Route path="about" element={<AboutMe/>}/>
-              </Routes>
+              <Home/>
+              <AboutMe/>
             </AnimatePresence>
             <Footer/>
     </div>

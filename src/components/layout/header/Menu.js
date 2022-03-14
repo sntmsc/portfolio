@@ -1,25 +1,30 @@
-import React from 'react'
+import {useState} from 'react'
 import { Stack , Text } from '@chakra-ui/react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-scroll'
 import './Menu.css'
-const Menu = () => {
-    const CustomText = ({children,link}) => {
 
-      return(
-          <Text
-          fontSize='xl'
-          fontFamily='Source Code Pro, monospace'
-          fontWeight='bold'
-          cursor='pointer'
-          _hover={{
-              textDecoration:'underline'
-          }}>
-            <NavLink to={link}>
-              {children}
-            </NavLink>
-          </Text>
-      )
-    }
+const CustomText = ({children,link, selected, setSelected}) => {
+    
+  return(
+      <Text
+      onClick={()=>setSelected(children)}
+      fontSize='xl'
+      fontFamily='Source Code Pro, monospace'
+      fontWeight='bold'
+      cursor='pointer'
+      textDecoration={selected === children ? 'underline' : 'none'}
+      _hover={{
+          textDecoration:'underline'
+      }}>
+        <Link to={link} smooth={true}>
+          {children}
+        </Link>
+      </Text>
+  )
+}
+
+const Menu = () => {
+const [selectedSection, setSelectedSection] = useState('');
   return(
       <Stack
       position='fixed'
@@ -34,10 +39,14 @@ const Menu = () => {
       align='center'
       spacing='1em'
       pr='1em'>
-          <CustomText link='/'>
+          <CustomText link='home'
+          selected={selectedSection}
+          setSelected={(s)=>setSelectedSection(s)}>
             Home
           </CustomText>
-          <CustomText link='/about'>
+          <CustomText link='aboutMe'
+          selected={selectedSection}
+          setSelected={(s)=>setSelectedSection(s)}>
             Sobre mi/Contactos
           </CustomText>
       </Stack>

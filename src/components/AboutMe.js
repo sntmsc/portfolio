@@ -5,27 +5,10 @@ import Contact from './Contact'
 import { motion } from 'framer-motion'
 const AboutMe = () => {
 
-    const variants = {
-        hidden:{
-            x: '-100vw'
-        },
-        visible: {
-            x: '0',
-            opacity:1,
-            transition: { duration: .7 }
-        },
-        exit: {
-            opacity: 0,
-            transition: {
-                ease: 'easeInOut' }
-        }
-    }
     return(
-        <motion.div
-        variants={variants}
-        initial='hidden'
-        animate='visible'
-        exit='exit'>
+        <Flex
+        id='aboutMe'
+        direction='column'>
             <Flex
             mb='5em'
             w='100%'
@@ -83,7 +66,7 @@ const AboutMe = () => {
                 </Flex>
             </Flex>
             <Contact/>
-        </motion.div>
+        </Flex>
     )
 }
 
