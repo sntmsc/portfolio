@@ -5,14 +5,11 @@ import './App.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import store from './store'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from "react-router-dom"
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
       <Provider store={store}>
-        <BrowserRouter>
           <App />
-        </BrowserRouter>
       </Provider>
     </ChakraProvider>
   </React.StrictMode>,

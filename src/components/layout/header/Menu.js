@@ -25,6 +25,7 @@ const CustomText = ({children,link, selected, setSelected}) => {
 
 const Menu = () => {
 const [selectedSection, setSelectedSection] = useState('');
+console.log('')
   return(
       <Stack
       position='fixed'
