@@ -47,25 +47,24 @@ const Techs = () => {
                 <Flex 
                 wrap='wrap'
                 w='100%'
-                justify='center'
                 align='center'
                 justify='space-around'>
-                        <CustomImg dir='./imgs/techs/html/html.png' desc='HTML' />
-                        <CustomImg dir='./imgs/techs/css/css.png' desc='CSS' />
-                        <CustomImg dir='./imgs/techs/js/js.png' desc='Javascrip' />
                         <CustomImg dir='./imgs/techs/react/react.png' desc='React' />
+                        <CustomImg dir='./imgs/techs/redux/redux.png' desc='Redux' />
+                        <CustomImg dir='./imgs/techs/chakra/chakra.png' desc='Chakra UI' />
+                        <CustomImg dir='./imgs/techs/bootstrap/bootstrap.png' desc='Bootstrap' />
+                        
                 </Flex>
                 <Flex 
-                justify='center'
                 align='center'
                 wrap='wrap'
                 w='100%'
                 justify='space-around'
                 mt='1em'>
-                        <CustomImg dir='./imgs/techs/chakra/chakra.png' desc='Chakra' />
-                        <CustomImg dir='./imgs/techs/bootstrap/bootstrap.png' desc='Bootstrap' />
-                        <CustomImg dir='./imgs/techs/redux/redux.png' desc='Redux' />
                         <CustomImg dir='./imgs/techs/firebase/firebase.png' desc='Firebase' />
+                        <CustomImg dir='./imgs/techs/js/js.png' desc='Javascript' /> 
+                        <CustomImg dir='./imgs/techs/html/html.png' desc='HTML' />
+                        <CustomImg dir='./imgs/techs/css/css.png' desc='CSS' /> 
                 </Flex>
             </Flex>
         </Flex>

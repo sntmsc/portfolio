@@ -1,12 +1,12 @@
 import {useState} from 'react'
-import { Stack , Text } from '@chakra-ui/react'
-import { Link } from 'react-scroll'
+import { Stack , Text, Link } from '@chakra-ui/react'
 import './Menu.css'
 
 const CustomText = ({children,link, selected, setSelected}) => {
     
   return(
       <Text
+      className='tap-mobile'
       onClick={()=>setSelected(children)}
       fontSize='xl'
       fontFamily='Source Code Pro, monospace'
@@ -16,7 +16,13 @@ const CustomText = ({children,link, selected, setSelected}) => {
       _hover={{
           textDecoration:'underline'
       }}>
-        <Link to={link} smooth={true}>
+        <Link
+        href={link}
+        _focus={{
+          outline:'none'
+        }}
+        textDecoration='none'
+        userSelect='none'>
           {children}
         </Link>
       </Text>
@@ -25,7 +31,6 @@ const CustomText = ({children,link, selected, setSelected}) => {
 
 const Menu = () => {
 const [selectedSection, setSelectedSection] = useState('');
-console.log('')
   return(
       <Stack
       position='fixed'
@@ -40,12 +45,12 @@ console.log('')
       align='center'
       spacing='1em'
       pr='1em'>
-          <CustomText link='home'
+          <CustomText link='#home'
           selected={selectedSection}
           setSelected={(s)=>setSelectedSection(s)}>
             Home
           </CustomText>
-          <CustomText link='aboutMe'
+          <CustomText link='#aboutMe'
           selected={selectedSection}
           setSelected={(s)=>setSelectedSection(s)}>
             Sobre mi/Contactos
