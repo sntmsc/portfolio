@@ -27,7 +27,7 @@ const AboutMe = () => {
                         opacity: 1,
                         scale:1,
                         transition: {delay:.5, duration: .5 }}}
-                    w={{base:'90%',md:'50%'}}
+                    w={{base:'90%',md:'70%',lg:'50%'}}
                     justify='center'
                     align='center'
                     direction={{base:'column',md:'row'}}
