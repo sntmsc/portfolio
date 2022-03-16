@@ -8,6 +8,7 @@ const Projects = ({disclosure}) => {
 
     return(
       <Box 
+      id='proyectos'
       marginTop='5em'>
         <Subtitle txt='Proyectos'/>
         <Flex

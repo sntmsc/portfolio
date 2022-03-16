@@ -1,7 +1,6 @@
 import React from 'react'
 import { Flex, Box, Text, Image } from '@chakra-ui/react'
-import Subtitle from '../utils/Subtitle'
-import Contact from './Contact'
+import Subtitle from '../../utils/Subtitle'
 import { motion } from 'framer-motion'
 const AboutMe = () => {
 
@@ -51,21 +50,16 @@ const AboutMe = () => {
                         align='center'
                         py='1em'
                         pl={{base: '0', md: '1em'}}>
-                            <Text fontSize='5xl'
-                            textAlign='center'>
-                                Santiago Hamber
-                            </Text>
                             <Text
                             fontFamily='Source Code Pro, monospace'
                             fontSize={{base:'1.2em',md:'1em'}}
                             textAlign='center'>
-                                Soy de Necochea, tengo 29 años y estudio desarrollo web desde diciembre del 2020. Decidí especializarme en frontend (utilizando React JS). Mi método de aprendizaje se basa en la creación de proyectos y el seguimiento de múltiples contenidos informativos en función de mis necesidades. Estoy buscando mi primer empleo como Junior, no dudes en contactarme! 
+                                ¡Hola! mi nombre es Santiago, soy de Necochea y estudio desarrollo web desde diciembre del 2020. Decidí especializarme en frontend (utilizando React JS). Mi método de aprendizaje se basa en la creación de proyectos y el seguimiento de múltiples contenidos informativos en función de mis necesidades. Estoy buscando mi primer empleo como Junior, no dudes en contactarme! 
                             </Text>
                         </Flex>
                     </Flex>
                 </Flex>
             </Flex>
-            <Contact/>
         </Flex>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import Subtitle from '../utils/Subtitle'
+import Subtitle from '../../utils/Subtitle'
 import { Flex, Text, Image } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
@@ -49,8 +49,8 @@ const Contact = () => {
         )
     }
     return(
-        <>
-            <Subtitle txt='Contactos'/>
+        <div id='contactos'>
+            <Subtitle txt='Contactos' />
             <Flex
             justify='center'
             w='100%'>
@@ -77,7 +77,7 @@ const Contact = () => {
                 </Flex>
 
             </Flex>
-        </>
+        </div>
     )
 }
 

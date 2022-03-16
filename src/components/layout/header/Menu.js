@@ -1,18 +1,16 @@
-import {useState} from 'react'
+import React from 'react'
 import { Stack , Text, Link } from '@chakra-ui/react'
 import './Menu.css'
 
-const CustomText = ({children,link, selected, setSelected}) => {
+const CustomText = ({children,link}) => {
     
   return(
       <Text
       className='tap-mobile'
-      onClick={()=>setSelected(children)}
       fontSize='xl'
       fontFamily='Source Code Pro, monospace'
       fontWeight='bold'
       cursor='pointer'
-      textDecoration={selected === children ? 'underline' : 'none'}
       _hover={{
           textDecoration:'underline'
       }}>
@@ -30,7 +28,7 @@ const CustomText = ({children,link, selected, setSelected}) => {
 }
 
 const Menu = () => {
-const [selectedSection, setSelectedSection] = useState('');
+
   return(
       <Stack
       position='fixed'
@@ -45,15 +43,17 @@ const [selectedSection, setSelectedSection] = useState('');
       align='center'
       spacing='1em'
       pr='1em'>
-          <CustomText link='#home'
-          selected={selectedSection}
-          setSelected={(s)=>setSelectedSection(s)}>
-            Home
+          <CustomText link='#inicio'>
+            Inicio
           </CustomText>
-          <CustomText link='#aboutMe'
-          selected={selectedSection}
-          setSelected={(s)=>setSelectedSection(s)}>
-            Sobre mi/Contactos
+          <CustomText link='#aboutMe'>
+            Sobre mi
+          </CustomText>
+          <CustomText link='#proyectos'>
+            Proyectos
+          </CustomText>
+          <CustomText link='#contactos'>
+            Contactos
           </CustomText>
       </Stack>
     )
