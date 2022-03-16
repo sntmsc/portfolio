@@ -43,9 +43,6 @@ const Menu = () => {
       align='center'
       spacing='1em'
       pr='1em'>
-          <CustomText link='#inicio'>
-            Inicio
-          </CustomText>
           <CustomText link='#aboutMe'>
             Sobre mi
           </CustomText>
