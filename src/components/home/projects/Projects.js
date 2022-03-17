@@ -3,7 +3,7 @@ import { Box, Stack , Flex } from '@chakra-ui/react';
 import projectsData from '../../../projectsData';
 import CardProject from './CardProject';
 import Subtitle from '../../../utils/Subtitle';
-
+import CardProject2 from './CardProject2';
 const Projects = ({disclosure}) => {
 
     return(

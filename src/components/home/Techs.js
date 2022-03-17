@@ -7,13 +7,14 @@ const Techs = () => {
         return(
                 <Box
                 boxSize='5em'
-                mb='2em'>
+                mb='3em'>
                     <Image
                     src={dir}
                     alt={desc}
                     mb='.5em'/>
                     <Text
                     textAlign='center'
+                    fontWeight='900'
                     fontFamily="'Cabin', sans-serif">
                         {desc}
                     </Text>
