@@ -23,7 +23,7 @@ const Projects = () => {
           spacing={{base:'27',md:'31'}}
           display='grid'
           gridTemplateColumns={'repeat(auto-fill, minmax(300px, 1fr));'}
-          maxW={!showMore ? '1000px' : 'none'}
+          maxW= '1000px'
           gridGap='20px'
           alignItems='stretch'
           w={{base:'100%',md:'80%'}}>

@@ -10,7 +10,7 @@ const AboutMe = () => {
         direction='column'
         w='100%'>
             <Flex
-            mb='5em'
+            mb='1em'
             w='100%'
             direction='column'
             justify='center'
