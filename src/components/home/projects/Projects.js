@@ -1,43 +1,74 @@
-import React from 'react'
-import { Box, Stack , Flex } from '@chakra-ui/react';
+import {useState} from 'react'
+import { Box, Text , Flex } from '@chakra-ui/react';
 import projectsData from '../../../projectsData';
-import CardProject from './CardProject';
 import Subtitle from '../../../utils/Subtitle';
-import CardProject2 from './CardProject2';
-const Projects = ({disclosure}) => {
-
+import CardProject from './CardProject';
+const Projects = () => {
+  const [showMore, setShowMore] = useState(false);
     return(
-      <Box 
+      <Flex 
       id='proyectos'
-      marginTop='5em'>
+      marginTop='5em'
+      direction='column'
+      align='center'
+      justify='center'>
         <Subtitle txt='Proyectos'/>
         <Flex
         width='100%'
         justifyContent='center'
-        alignItems='center'>
-          <Stack
-          border={{base:'0',md:'1px'}}
-          borderRadius='15px'
+        alignItems='center'
+        direction='column'>
+          <Box
           direction={{base:'column',md:'row'}}
           spacing={{base:'27',md:'31'}}
-          justify='center'
-          align='center'
-          flexWrap='wrap'
-          w={{base:'100%',md:'80%'}}
-          p='2em'>
-            {projectsData.map((x,i) => 
-                <CardProject 
-                key={i}
+          display='grid'
+          gridTemplateColumns={'repeat(auto-fill, minmax(300px, 1fr));'}
+          maxW={!showMore ? '1000px' : 'none'}
+          gridGap='20px'
+          alignItems='stretch'
+          w={{base:'100%',md:'80%'}}>
+
+            {showMore ? 
+                projectsData.map((x,i) => 
+                    
+                <CardProject
+                i={i}
                 name={x.name}
+                desc={x.desc}
                 tags={x.tags}
                 img={x.img}
-                index={i}
-                disclosure={disclosure}
-                />
-            )}
-          </Stack>
+                app={x.website}
+                github={x.github}/>) :
+                
+                projectsData.filter((x,i)=> i < 3).map((x,i)=>
+                <CardProject
+                i={i}
+                name={x.name}
+                desc={x.desc}
+                tags={x.tags}
+                img={x.img}
+                app={x.website}
+                github={x.github}/>)}
+          </Box>
+          <Text
+          className='tap-mobile'
+          as='a'
+          mt='1em'
+          _active={{bg:'#d0d0d5'}}
+          cursor='pointer'
+          border='1px solid'
+          userSelect='none'
+          p='.5em'
+          borderRadius='5px'
+          boxShadow='lg'
+          fontSize='1.5em'
+          fontFamily='Source Code Pro, monospace'
+          href='#proyectos'
+          onClick={()=>{setShowMore(!showMore)}}>
+            {showMore ? '...mostrar menos' : 'mostrar más...'}
+          </Text>
         </Flex>
-      </Box>
+      </Flex>
     )
   }
   export default Projects 

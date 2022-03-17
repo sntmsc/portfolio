@@ -1,7 +1,6 @@
 import React from 'react' 
 import Tittle from '../layout/header/Tittle'
 import Projects from './projects/Projects'
-import ModalProjects from './projects/ModalProjects'
 import Techs from './Techs'
 import AboutMe from './AboutMe'
 import Contact from './Contact'
@@ -18,7 +17,6 @@ const Home = () =>{
         <Tittle/>
         <AboutMe/>
         <Projects disclosure={disclosure}/>
-        <ModalProjects disclosure={disclosure}/>
         <Techs/>
         <Contact/>
         </Flex>

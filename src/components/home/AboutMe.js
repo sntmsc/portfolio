@@ -7,11 +7,14 @@ const AboutMe = () => {
     return(
         <Flex
         id='aboutMe'
-        direction='column'>
+        direction='column'
+        w='100%'>
             <Flex
             mb='5em'
             w='100%'
-            direction='column'>
+            direction='column'
+            justify='center'
+            align='center'>
                 <Subtitle txt='Sobre mi'/>
                 <Flex
                 w='100%'

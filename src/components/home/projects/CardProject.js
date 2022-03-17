@@ -1,59 +1,110 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { selectProject } from './../../../reducers/ProjectReducer'
-import {  Flex, Text, Image  } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
-
-      const CardProject = ({name,tags,index,img,disclosure}) => {
-
-        const variants = {
-          init: { scale: 1 },
-          value: { scale: 1.2, transition:{duration:0.3}}
-        }
+import {
+    Image,
+    Heading,
+    Flex,
+    Box,
+    Center,
+    Text,
+    Stack,
+    Button,
+    Badge,
+  } from '@chakra-ui/react';
   
-        const {onOpen} = disclosure;
-        const dispatch = useDispatch();
-        const projectFocus = (i) => {
-          dispatch(selectProject(i))
-        }
-        return(
-          <Flex
-          as={motion.div}
-          variants={variants}
-          initial='init'
-          whileTap="value"
-          whileFocus="value"
-          whileHover="value"
-          onClick={()=>{projectFocus(index);onOpen()}}
-          flexDirection='column'
-          justify='center'
-          position='relative'
-          align='center'
-          w='10em'
-          h='15em'
-          _hover={{cursor:'pointer'}}>
-            <Image
-                  boxSize='8em'
-                  borderRadius={index%2===0 ? '50%' : '0'}
-                  border='1px solid black'
-                  borderColor='rgba(0,0,0,0.2)'
-                  mb='1em'
-                  src={img}
-                  alt='project'
-                  boxShadow=' 0 0 0 2px black'
-                  objectFit='cover'/>
-            <Text 
-            fontFamily="'Cabin', sans-serif"
-            fontSize='1.5em'
-            textAlign='center'>
-              {name}
-            </Text>
+  const CardProject2 = ({i,name,desc,tags,img,app,github}) => {
+    return (
+      <Center
+      py={6}
+      key={i}>
+        <Box
+          maxW='320px'
+          w='full'
+          bg='white'
+          boxShadow='lg'
+          rounded='lg'
+          textAlign='center'>
+        <Image
+        h='150px'
+        w='full'
+        src={img}
+        
+        objectFit={'cover'}
+        />
+        <Flex
+        direction='column'
+        p={6}>
+            <Heading
+            fontSize={'2em'}
+            fontFamily='Oswald, sans-serif'
+            fontWeight='500'
+            mb='1em'>
+                {name}
+            </Heading>
+            <Flex
+            h='6em'
+            align='center'>
             <Text
-            fontFamily="'Cabin', sans-serif">
-              {tags.map((x)=>`#${x}`).join(' ')}
+                textAlign='center'
+                fontFamily="'Cabin', sans-serif"
+                color='gray.700'
+                px={3}
+                >
+                  {desc}
             </Text>
+            </Flex>
+    
+            <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
+              {tags.map((x,index)=>
+                <Badge
+                px={2}
+                py={1}
+                bg='gray.50'
+                fontWeight={'400'}>
+                {`#${x}`}
+                </Badge>
+                )}
+                
+            </Stack>
+    
+            <Stack mt={8} direction={'row'} spacing={4}>
+                <Button
+                as='a'
+                target='_blank'
+                href={app}
+                alt={name}
+                className='tap-mobile'
+                flex={1}
+                fontSize={'1em'}
+                fontFamily='Source Code Pro, monospace'
+                rounded={'full'}
+                _focus={{
+                    bg: 'gray.200',
+                }}>
+                App
+                </Button>
+                <Button
+                as='a'
+                target='_blank'
+                href={github}
+                className='tap-mobile'
+                flex={1}
+                fontSize={'1em'}
+                fontFamily='Source Code Pro, monospace'
+                rounded={'full'}
+                bg={'gray.400'}
+                color={'black'}
+                _hover={{
+                    bg: 'gray.500',
+                }}
+                _focus={{
+                    bg: 'gray.500',
+                }}>
+                Github
+                </Button>
+            </Stack>
           </Flex>
-        )
-      }
+        </Box>
+      </Center>
+    );
+  }
 
-      export default CardProject
+  export default CardProject2

@@ -49,7 +49,12 @@ const Contact = () => {
         )
     }
     return(
-        <div id='contactos'>
+        <Flex
+        id='contactos'
+        direction='column'
+        justify='center'
+        align='center'
+        w='100%'>
             <Subtitle txt='Contactos' />
             <Flex
             justify='center'
@@ -77,7 +82,7 @@ const Contact = () => {
                 </Flex>
 
             </Flex>
-        </div>
+        </Flex>
     )
 }
 

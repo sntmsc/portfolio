@@ -43,6 +43,7 @@ const Techs = () => {
             mt='4em'
             p='2em'
             bg='#d0d0d5'
+            boxShadow='lg'
             borderRadius={'5px'}
             mb='5em'>
                 <Flex 
