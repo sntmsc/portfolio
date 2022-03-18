@@ -18,7 +18,8 @@ import {
           maxW='320px'
           w='full'
           bg='white'
-          boxShadow='lg'
+          boxShadow='black 3px 3px'
+          border='2px solid black'
           rounded='lg'
           textAlign='center'>
         <Image
