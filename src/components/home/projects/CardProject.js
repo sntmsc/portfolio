@@ -10,11 +10,10 @@ import {
     Badge,
   } from '@chakra-ui/react';
   
-  const CardProject2 = ({i,name,desc,tags,img,app,github}) => {
+  const CardProject = ({name,desc,tags,img,app,github}) => {
     return (
       <Center
-      py={6}
-      key={i}>
+      py={6}>
         <Box
           maxW='320px'
           w='full'
@@ -55,6 +54,7 @@ import {
             <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
               {tags.map((x,index)=>
                 <Badge
+                key={index}
                 px={2}
                 py={1}
                 bg='gray.50'
@@ -107,4 +107,4 @@ import {
     );
   }
 
-  export default CardProject2
+  export default CardProject

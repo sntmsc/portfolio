@@ -30,25 +30,26 @@ const Projects = () => {
 
             {showMore ? 
                 projectsData.map((x,i) => 
-                    
-                <CardProject
-                i={i}
-                name={x.name}
-                desc={x.desc}
-                tags={x.tags}
-                img={x.img}
-                app={x.website}
-                github={x.github}/>) :
+                <div key={i}>
+                  <CardProject
+                  name={x.name}
+                  desc={x.desc}
+                  tags={x.tags}
+                  img={x.img}
+                  app={x.website}
+                  github={x.github}/>
+                </div> ) :
                 
                 projectsData.filter((x,i)=> i < 3).map((x,i)=>
-                <CardProject
-                i={i}
-                name={x.name}
-                desc={x.desc}
-                tags={x.tags}
-                img={x.img}
-                app={x.website}
-                github={x.github}/>)}
+                <div key={i}>
+                  <CardProject
+                  name={x.name}
+                  desc={x.desc}
+                  tags={x.tags}
+                  img={x.img}
+                  app={x.website}
+                  github={x.github}/>
+                </div>)}
           </Box>
           <Text
           className='tap-mobile'
@@ -63,8 +64,8 @@ const Projects = () => {
           boxShadow='lg'
           fontSize='1.5em'
           fontFamily='Source Code Pro, monospace'
-          href='#proyectos'
-          onClick={()=>{setShowMore(!showMore)}}>
+          href={showMore ? '#proyectos' : null}
+          onClick={()=>{setTimeout(()=>setShowMore(!showMore),400)}}>
             {showMore ? '...mostrar menos' : 'mostrar más...'}
           </Text>
         </Flex>
