@@ -7,7 +7,7 @@ const CustomText = ({children,link}) => {
   return(
       <Text
       className='tap-mobile'
-      fontSize='xl'
+      fontSize={{base:'1em',md:'xl'}}
       fontFamily='Source Code Pro, monospace'
       fontWeight='bold'
       cursor='pointer'
