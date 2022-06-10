@@ -4,7 +4,7 @@ const projectsData = [
     id:0,
     tags:['challenge'],
     img:'./imgs/projects/aerolab.png',
-    desc:'¡Canjea productos por puntos acumulados! Next JS, Styled Components.',
+    desc:'¡Canjeá puntos acumulados por productos! Next JS, Styled Components.',
     website:'https://aerolab-challenge-sntmsc.vercel.app/',
     github:'https://github.com/sntmsc/frontend-developer-coding-challenge',
     footer:'Me encantan los productos tecnológicos'},
