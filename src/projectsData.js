@@ -34,7 +34,7 @@ const projectsData = [
     footer:"Please don't stop the music"},
     {name:'SuperHero',
     id:4,
-    tags:['juego','info'],
+    tags:['challenge'],
     img:'./imgs/projects/superhero.png',
     desc:'Crea tu equipo de superheroes! React, Bootstrap, SuperHero API. Ingrese los siguientes datos: mail:challenge@alkemy.org, password:react',
     website:'https://superhero-sntmsc.netlify.app/',
